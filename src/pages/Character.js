@@ -29,7 +29,7 @@ const Character = () => {
               className="btn btn-outline-warning col-12"
               onClick={handleBack}
             >
-              Go Back
+              Volte
             </button>
        
             <h5 style={{marginTop:"20px"}}>Gostou? clique no botão do whatsapp para atendimento exclusivo.</h5>
