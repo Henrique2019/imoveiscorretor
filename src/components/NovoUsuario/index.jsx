@@ -6,7 +6,8 @@ import Avatar from '../../models/Avatar'
 import Button from '../Button'
 import logo from '../Image/img/logoCorretora2.svg'
 import logo1 from '../Header/img/casa.svg'
-import logo2 from '../Image/img/12.svg'
+import '../Header/index.css'
+import '../../css/index.css'
 
 
 class NovoUsuario extends React.Component {
@@ -89,7 +90,10 @@ class NovoUsuario extends React.Component {
                 <section>
                     <br />
 
-                    <img className="logo" id='logo' src={logo1} width='380px' height='50px' />
+                    <img  id='logo' src={logo1} width='255rem'/>
+                <br></br>
+                <br></br>
+                <br></br>
 
                 </section>
 
@@ -102,13 +106,17 @@ class NovoUsuario extends React.Component {
         if (this.state.primeiraVisaoCompleta) {
             return (
                 <section >
-                    <br />
+                    
+                    <div>
                     <Label
-                        texto={<p>  Olá <strong>{this.state.usuario.nome}</strong>, meu nome e <strong>Giovana Silva</strong>, <br /> irei te ajudar na sua melhor escolha. </p>}
+                        className="label"
+                        texto={<p>  Olá <strong>{this.state.usuario.nome}</strong>, meu nome é <strong>Giovana Silva.</strong><br>
+                        </br>Serei sua corretora a partir daqui,<br>
+                        </br> sinta-se a vontade. </p>}
                         valorInvalido={this.state.validacao.generoInvalido}
-                    />
-                    <img className="logo" src={logo} width='200px' height='200px' />
-                    <img className="logo" src={logo2} width='200px' height='200px' />
+                    />                    
+                    <img className="salvar" src={logo}/>
+                    </div>
                 </section>
             )
         } else {
@@ -119,7 +127,7 @@ class NovoUsuario extends React.Component {
     renderizarBotoes() {
         if (this.state.primeiraVisaoCompleta) {
             return (
-                <section>
+                <section>                    
                     <Button
                         texto="Voltar"
                         onClick={e => {
@@ -146,11 +154,15 @@ class NovoUsuario extends React.Component {
         } else {
             return (
                 <section>
+                    <div  className='d-flex justify-content-center'style={{marginLeft:"5rem"}} >
                     <Button
+                    className="botao"
                         principal
                         texto="Próximo"
                         onClick={this.validar.bind(this)}
+                        
                     />
+                    </div>
                 </section>
             )
         }
@@ -158,7 +170,7 @@ class NovoUsuario extends React.Component {
 
     render() {
         return (
-            <div className="center">
+            <div className='center'>
                 <form className="pure-form pure-form-stacked">
                     {this.renderizarNome()}
                     {this.renderizarGenero()}
@@ -166,6 +178,7 @@ class NovoUsuario extends React.Component {
                     {this.renderizarBotoes()}
                 </form>
             </div>
+            
         );
     }
 }

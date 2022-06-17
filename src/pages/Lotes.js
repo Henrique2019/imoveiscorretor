@@ -8,7 +8,7 @@ const Lotes = () => {
 
   return (
     <div className="container mt-3">
-      <h1>Apartamentos</h1>
+      <h1>Loteamentos</h1>
       <hr />
       <div className="row">
         {saiyans.map((saiyan) => (
@@ -20,3 +20,4 @@ const Lotes = () => {
 };
 
 export default Lotes;
+

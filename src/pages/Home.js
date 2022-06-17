@@ -15,12 +15,15 @@ const Home = () => {
     navigate("/characters");
   };
   return (
-    <div className="container mt-5 text-center d-flex flex-column justify-content-center">
-     <img className="logo1" id='logo' src={logo1}  />
-      <button onClick={handleClick} className=" my-5 btn btn-primary">
-        Start
-      </button>
+    <>
+    <div>
+     <img id='logo' src={logo1} height="100" width="301"/>
+      
     </div>
+    <button onClick={handleClick} className=" my-5 btn btn-primary">
+        Ver Portfólio
+      </button>
+      </>
   );
 };
 

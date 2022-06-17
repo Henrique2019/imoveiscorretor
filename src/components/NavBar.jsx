@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ACTIONS } from "../constants";
 import { AuthContext } from "../context/AuthContext";
-import logo from './Header/img/casa.svg'
+import logo from './Header/img/casa.svg'   
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -15,46 +19,39 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-info">
-      <div className="container-fluid">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo03"
-          aria-controls="navbarTogglerDemo03"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <>
+    <Navbar fixed="top" collapseOnSelect expand="lg" bg="primary" variant="dark">
+      <Container>
+        <Navbar.Brand href="#home">
         <div>
-          <img className="logo" src={logo} alt="" width='115px' height='76px' style={{ marginRight: 143 }} />
+          <img className="logo" src={logo} alt="" width='115px' height='76px' style={{ marginLefth: '3rem' }} />
         </div>
-        <div className="collapse navbar-collapse  " id="navbarTogglerDemo03">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <NavLink
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+          <NavLink
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active text-white" : ""}`
                 }
                 aria-current="page"
                 to="/characters"
               >
+                <Nav.Link href="/characters">
                 Portfólio
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
+                </Nav.Link>                
+              </NavLink> 
+
+            <NavLink
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active text-white" : ""}`
                 }
                 aria-current="page"
                 to="/saiyans"
               >
-                Apartamentos
+                <Nav.Link href="/saiyans">Apartamentos</Nav.Link>
               </NavLink>
-            </li>
-            <li className="nav-item">
+
               <NavLink
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active text-white" : ""}`
@@ -62,10 +59,9 @@ const NavBar = () => {
                 aria-current="page"
                 to="/humans"
               >
-                Casas
+                <Nav.Link href="/humans">Casas</Nav.Link>
               </NavLink>
-            </li>
-            <li className="nav-item">
+
               <NavLink
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active text-white" : ""}`
@@ -73,10 +69,9 @@ const NavBar = () => {
                 aria-current="page"
                 to="/Lotes"
               >
-                Loteamentos
+                <Nav.Link href="/Lotes">Loteamentos</Nav.Link>
               </NavLink>
-            </li>
-            <li className="nav-item">
+
               <NavLink
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active text-white" : ""}`
@@ -84,18 +79,22 @@ const NavBar = () => {
                 aria-current="page"
                 to="/search"
               >
-                Search
+                <Nav.Link href="/search">Search</Nav.Link>
               </NavLink>
-            </li>
-          </ul>
-          <div className="d-flex">
+          </Nav>
+          <Nav>
+            <Nav.Link eventKey={2} href="#">
+            <div className="d-flex">
             <button className="btn btn-danger" onClick={handleLogout}>
               Logout
             </button>
           </div>
-        </div>
-      </div>
-    </nav>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  </>
   );
 };
 

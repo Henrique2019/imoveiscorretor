@@ -7,9 +7,9 @@ export default function Button(props) {
         boxSizing: 'border-box',
         backgroundColor: props.principal ? '#2c80b9' : '#e6e6e6',
         float: props.principal ? 'right' : 'left',
-        marginTop: '10px',
+        marginTop: '0.1rem',
         width: '120px',
-        height: '38px'
+        height: '38px',
     }
 
     return (
